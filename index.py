@@ -15,35 +15,36 @@ app.scripts.append_script({
     })
 
 
-
-app.layout = html.Div([
+def serve_layout():
+	return html.Div([
+				dcc.Location(id='url',refresh=True),
 				#dcc.Location(id='url'),
-				html.Div([
-					html.Img(
-                    			src="https://s3.amazonaws.com/inveniamlogo/logo.png",
-                    			style={
-				                        'height': '300px',
-				                        'float': 'none',
-				                        'width':'100%'
-                    				},
-                			)]),
 				html.Div([
 					html.Table([
 						html.Tr([
-							dcc.Location(id='url'),
+							html.Td([
+								html.Div([
+										html.Img(
+                    					src="http://inveniamfunds.com/wp-content/uploads/2017/02/blue_circle_logo.png",
+		                    			style={
+						                       	'height': '60px',
+						                        'float': 'none',
+						                        'width':'75%'
+		                    				},)],style={"background-color":"#F1F5F8","width":"85%"}),
+                			],style={"width":"45%"}),
 							html.Td([dcc.Link('Oil and Gas Well Data',href='/oil_and_gas')]),
 							html.Td([dcc.Link('Financial Analytics',href='/stocks')]),
 							html.Td([dcc.Link('Research Reports',href='/apps/reports')]),
 							html.Td([dcc.Link('Contact Us',href='/contactUs')]),
 							]),],style={'width':'100%'})],
-												style={'height': '60px',
+												style={'height': '64px',
 												'font': 'normal normal 600 1em/4em Arial,sans-serif',
 												'text-decoration': 'none',
     											'color': 'white',
 											    'background-color': '#00A3DA',
     											'display':'block',
     											'width':'100%',
-    											'padding-left':'5px',
+    											'padding-left':'5px'
 												 #'background-color': 'black'
 												 }),
 				html.Div([
@@ -51,8 +52,10 @@ app.layout = html.Div([
 
 			])
 
-@app.callback(Output('app_info_content', 'children'),
-              [Input('url', 'pathname')])
+app.layout = serve_layout
+
+@app.callback(dash.dependencies.Output('app_info_content', 'children'),
+              [dash.dependencies.Input('url', 'pathname')])
 def display_page(pathname):
 	if pathname=='/oil_and_gas':
 		print(pathname)

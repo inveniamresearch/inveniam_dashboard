@@ -29,12 +29,12 @@ layout = html.Div([
                        'font-family': 'Product Sans',
                        'color': "rgba(117, 117, 117, 0.95)",
                        'margin-top': '10px',
-                       'margin-bottom': '0'
+                       'margin-bottom': '5px',
+                       'margin-left': '10px',
                        }),
         html.Img(src="https://cdn.rawgit.com/plotly/design-assets/a8c0b6972563dfa3e8e7b5d7454d4909fa9db21b/logo/dash/images/dash-logo-by-plotly-stripe.png?token=ARkbwzp9Cq3SoAp8SBfsMVVfotVrJJUxks5ZW_jVwA%3D%3D",
                 style={
                     'height': '100px',
-                    'float': 'right'
                 },
         ),
     ]),
@@ -43,11 +43,11 @@ layout = html.Div([
             id='stock-ticker-input',
             options=[{'label': s[0], 'value': s[1]}
                      for s in zip(df_symbol.Company, df_symbol.Symbol)],
-            value=['YHOO', 'GOOGL'],
+            value=['PES', 'EOG'],
             multi=True
         ),],style={"padding":"10px"}),
         html.Div(id='graphs',style={"padding":"10px"})
-],)
+])
 
 def bbands(price, window_size=10, num_of_std=5):
     rolling_mean = price.rolling(window=window_size).mean()
@@ -100,7 +100,7 @@ def update_graph(tickers):
             figure={
                 'data': [candlestick] + bollinger_traces,
                 'layout': {
-                    'margin': {'b': 0, 'r': 10, 'l': 60, 't': 0},
+                    'margin': {'b': 0, 'r': 0, 'l': 50, 't': 0},
                     'legend': {'x': 0}
                 }
             }
