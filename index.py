@@ -34,7 +34,7 @@ def serve_layout():
                 			],style={"width":"45%"}),
 							html.Td([dcc.Link('Oil and Gas Well Data',href='/oil_and_gas')]),
 							html.Td([dcc.Link('Financial Analytics',href='/stocks')]),
-							html.Td([dcc.Link('Research Reports',href='/apps/reports')]),
+							html.Td([dcc.Link('Research Reports',href='/reports')]),
 							html.Td([dcc.Link('Contact Us',href='/contactUs')]),
 							]),],style={'width':'100%'})],
 												style={'height': '64px',
@@ -64,6 +64,8 @@ def display_page(pathname):
 		return stocks.layout
 	elif pathname=="/contactUs":
 		return contactUs.layout
+	elif pathname=="/reports":
+		return reports.layout
 	else:
 		return oil_and_gas.layout
 
