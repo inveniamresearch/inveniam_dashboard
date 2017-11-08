@@ -58,15 +58,15 @@ app.layout = html.Div([
 def display_page(pathname):
 	if pathname=='/oil_and_gas':
 		print(pathname)
-		return oil_and_gas.layout
+		return oil_and_gas.layout1
 	elif pathname=='/stocks':
-		return stocks.layout
+		return stocks.layout1
 	elif pathname=="/contactUs":
-		return contactUs.layout
+		return contactUs.layout1
 	elif pathname=="/reports":
-		return reports.layout
+		return reports.layout1
 	else:
-		return oil_and_gas.layout
+		return oil_and_gas.layout1
 
 if __name__ == '__main__':
     app.server.run(debug=True, threaded=True)

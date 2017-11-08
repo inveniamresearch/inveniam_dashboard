@@ -19,7 +19,7 @@ colorscale = cl.scales['9']['qual']['Paired']
 
 df_symbol = pd.read_csv('tickers.csv')
 
-layout = html.Div([
+layout1 = html.Div([
     html.Div([
         html.H2('Financial Analytics',
                 style={'display': 'inline',
