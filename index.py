@@ -15,8 +15,7 @@ app.scripts.append_script({
     })
 
 
-def serve_layout():
-	return html.Div([
+app.layout = html.Div([
 				dcc.Location(id='url',refresh=True),
 				#dcc.Location(id='url'),
 				html.Div([
@@ -52,7 +51,7 @@ def serve_layout():
 
 			])
 
-app.layout = serve_layout
+#app.layout = serve_layout
 
 @app.callback(dash.dependencies.Output('app_info_content', 'children'),
               [dash.dependencies.Input('url', 'pathname')])
