@@ -25,7 +25,7 @@ def serve_layout():
 							html.Td([
 								html.Div([
 										html.Img(
-                    					src="http://inveniamfunds.com/wp-content/uploads/2017/02/blue_circle_logo.png",
+                    					src="https://s3.amazonaws.com/inveniamlogo/blue_circle_logo.png",
 		                    			style={
 						                       	'height': '60px',
 						                        'float': 'none',
